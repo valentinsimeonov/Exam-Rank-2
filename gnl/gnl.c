@@ -5,24 +5,24 @@ char *get_next_line(int fd)
 	int read_count;
 	int	i;
 	char c;
-	char	*buffer;
+	char	*line;
 
 	i = 0; 
 	read_count = 0;
-	buffer = malloc(10000);
+	line = malloc(10000);
 	while ((read_count = read(fd, &c, 1) > 0))
 	{
-		buffer[i++] = c;
+		line[i++] = c;
 		if (c == '\n')  
 			break; 
 	} 
-	if ((!read_count && !buffer[i - 1]) || read_count == -1)
+	if ((!read_count && !line[i - 1]) || read_count == -1)
 	{     
-		free(buffer);
+		free(line);
 		return NULL;
 	}     
-	buffer[i] = '\0';
-	return (buffer); 
+	line[i] = '\0';
+	return (line); 
 } 
 
 int		main()

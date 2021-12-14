@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 
 		s1 = argv[1];
 		s2 = argv[2];
-		// s1 = "argv[1]";
+		// s1 = "aagv[1]";
 		// s2 = "argv[2]";
 
 		i = 0;

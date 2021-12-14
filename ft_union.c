@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 		s2 = argv[2];
 		while (s1[i])
 		{
-			if (!has_dup(s1, s1[i], i))
+			if (!has_dup(s1, s1[i], i + 1))
 				write(1, &s1[i], 1);
 			i++;
 		}
