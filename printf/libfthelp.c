@@ -31,6 +31,26 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 
+int putnbr(long n, char *base)
+{
+	long baselen = ft_strlen(base);
+	int counter = 0;
+
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -(n);
+	}
+	if (n == 0)
+	{
+		write(1, "0", 1)
+	}
+	if (n <= baselen)
+	{
+		
+	}
+}
+
 void	ft_putstr_fd(char *s, int fd)
 {
 	if (s)
