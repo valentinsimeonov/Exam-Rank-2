@@ -29,7 +29,7 @@ int	ft_putnbr_base(long n, char *base)
 	}
 	if (n >= base_len)
 	{
-		ft_putnbr_base(n / base_len, base);
+		counter += ft_putnbr_base(n / base_len, base);
 		counter += write(1, &base[n % base_len], 1);
 	}
 	else if (n < base_len)
