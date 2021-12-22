@@ -1,8 +1,8 @@
-#include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdio.h>
 
-int	dectohex(long long int n, int base, char *base_str)
+int		translate(long long int n, int base, char *base_str)
 {
 	int			index;
 	static int	hexlen;
@@ -17,63 +17,62 @@ int	dectohex(long long int n, int base, char *base_str)
 		i++;
 	}
 	if (n / base)
-		dectohex(n / base, base, base_str);
+		translate(n / base, base, base_str);
 	hexlen++;
 	index = n % base;
 	write(1, &base_str[index], 1);
 	return (hexlen + i);
 }
 
-int	wstr(va_list ap)
+int		print_str(va_list list)
 {
 	int		i;
-	char	*string;
+	char	*str;
 
 	i = 0;
-	string = va_arg(ap, char *);
-	if (!string)
-		string = "(null)";
-	while (*(string + i))
-		write(1, (string + i++), 1);
+	str = va_arg(list, char *);
+	if (!str)
+		str = "(null)";
+	while (str[i])
+		write(1, (str + i++), 1);
 	return (i);
 }
 
-int	ft_printf(const char *fmt, ...)
+int	ft_printf(const char *str, ...)
 {
-	va_list		ap;
+	va_list		list;
 	int			i;
-	int			j;
+	int			len;
 
 	i = 0;
-	j = 0;
-	va_start(ap, fmt);
-	while (*(fmt + i))
+	len = 0;
+	va_start(list, str);
+	while (str[i])
 	{
-		if (*(fmt + i) == '%')
+		if (str[i] == '%')
 		{
 			i++;
-			if (*(fmt + i) == 'd')
-				j += dectohex(va_arg(ap, int), 10, "0123456789");
-			if (*(fmt + i) == 'x')
-				j += dectohex(va_arg(ap, long long int), 16, "0123456789abcdef");
-			if (*(fmt + i) == 's')
-				j += wstr(ap);
-			if (*(fmt + i) == '%')
-				j += write(1, "%", 1);
+			if (str[i] == 'd')
+				len += translate(va_arg(list, int), 10, "0123456789");
+			if (str[i] == 'x')
+				len += translate(va_arg(list, long long int), 16, "0123456789abcdef");
+			if (str[i] == 's')
+				len += print_str(list);
+			if (str[i] == '%')
+				len += write(1, "%", 1);
 			i++;
 		}
-		if (*(fmt + i) && *(fmt + i) != '%')
-			j += write(1, (fmt + i++), 1);
+		if (str[i] && str[i] != '%')
+			len += write(1, (str + i++), 1);
 	}
-	va_end(ap);
-	return (j);
+	va_end(list);
+	return (len);
 }
 
 int main()
 {
 	char *ch = "(a string)";
 	int	i;
-
 
 	i = ft_printf("%d %d %d %d %d", -2147483647, 17, 3, 1300, -400);
 	ft_printf("\n");
