@@ -4,7 +4,7 @@ Expected files   : repeat_alpha.c
 Allowed functions: write
 --------------------------------------------------------------------------------
 
-Write a program called repeat_alpha that takes a string and display it
+Write a program called repeat_alpha that takes a argving and display it
 repeating each alphabetical character as many times as its alphabetical index,
 followed by a newline.
 
@@ -34,7 +34,7 @@ $>
 #include <unistd.h>
 #include <stdio.h>
 
-void	repeat_alpha(char *str)
+int	main(int argc, char **argv)
 {
 	int		i;
 	int		j;
@@ -42,21 +42,22 @@ void	repeat_alpha(char *str)
 	int		times;
 
 	i = 0;
-	// if (!str[i])
-	while (str[i] || str[i] != '\0')
+	if (!argv[1])
+		return (0);
+	while (argv[1][i] != '\0')
 	{
 			/* Is Anything else */
-		if ((str[i] < 97 && str[i] > 122) || (str[i] < 65 && str[i] > 90))
+		if (!(argv[1][i] >= 97 && argv[1][i] <= 122) || (argv[1][i] >= 65 && argv[1][i] <= 90))
 		{
-			letter = str[i];
+			letter = argv[1][i];
 			write(1, &letter, 1);
 		}
 			/* Is Upper */
-		if (str[i] >= 97 && str[i] <= 122)
+		if (argv[1][i] >= 97 && argv[1][i] <= 122)
 		{
 			j = 0;
 			times = 0;
-			letter = str[i];
+			letter = argv[1][i];
 			printf("%c", letter);
 			times = letter - 96;
 			printf("%d", times);
@@ -67,11 +68,11 @@ void	repeat_alpha(char *str)
 			}
 		}
 			/* Is Lower */
-		if (str[i] >= 65 && str[i] <= 90)
+		if (argv[1][i] >= 65 && argv[1][i] <= 90)
 		{
 			j = 0;
 			times = 0;
-			letter = str[i];
+			letter = argv[1][i];
 			printf("%c", letter);
 			times = letter - 64;
 			printf("%d", times);
@@ -81,18 +82,8 @@ void	repeat_alpha(char *str)
 				j++;
 			}
 		}
-
 		i++;
 	}
 	write(1, "\n", 1);
-}
-
-int	main()
-{
-	char	*str;
-
-	str = "abc 43 A";
-	repeat_alpha(str);	
 	return (0);
 }
-
