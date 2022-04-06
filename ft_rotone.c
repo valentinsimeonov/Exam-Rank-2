@@ -31,26 +31,62 @@ $>
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
-{
-	int		i;
+/* I could have Made it Simpler, however I made just as ft_rot_13 so I can Understand Myself Better */
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
 
 int	main(int argc, char **argv)
 {
 	int		i;
+	int		num;
+	int		dif;
+	char	output;
+
 
 	i = 0;
-	while (argv[1][i] != '0')
+	if (argc !=  2)
 	{
-		ft_putstr(argv[1]);
+		write(1, "\n", 1);
+		return(0);
+	}
+	while (argv[1][i] != '\0')
+	{
+
+				/* is Upper */
+		if (argv[1][i] >= 'A' && argv[1][i] <= 'Z')
+		{
+			if (argv[1][i] + 1 > 90)
+			{
+				num = argv[1][i] + 1;
+				dif = num - 90;
+				output = 64 + dif;
+				ft_putchar(output);
+			}
+			else
+				ft_putchar(argv[1][i] + 1);
+		}
+				/* is Lower */
+		else if (argv[1][i] >= 'a' && argv[1][i] <= 'z')
+		{
+			if (argv[1][i] + 1 > 122)
+			{
+				num = argv[1][i] + 1;
+				dif = num - 122;
+				output = 96 + dif;
+				ft_putchar(output);
+			}
+			else
+				ft_putchar(argv[1][i] + 1);
+		}
+		else if (!(argv[1][i] >= 'A' && argv[1][i] <= 'Z') || !(argv[1][i] >= 'a' && argv[1][i] <= 'z'))
+		{
+			ft_putchar(argv[1][i]);
+		}
 		i++;
 	}
+	write(1, "\n", 1);
+	return (0);
 }
