@@ -13,6 +13,7 @@ Your function must be declared as follows:
 
 int	ft_atoi(const char *str);
 */
+
 #include <unistd.h>
 #include <stdio.h>
 
@@ -45,7 +46,7 @@ int		main()
 {
 	char	*str;
 
-	str = "23";
+	str = "-23";
 	printf("%d", ft_atoi(str));
 	return(0);
 }
