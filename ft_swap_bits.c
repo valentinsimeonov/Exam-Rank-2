@@ -34,7 +34,7 @@ int	main()
 {
 	unsigned char		num;
 
-	num = 'A';
+	num = 'p';
 	printf("%d",swap_bits(num));
 	return(0);
 }
