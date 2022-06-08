@@ -29,16 +29,19 @@ lorem,ipsum$
 $>
 
 My Tests:
-"" | cat -e
-| cat -e
-"A"  | cat -e
-"\!\@#\!\@$\@#%$$#%$%^%$^^%&^%&&*&*" | cat -e
-"		 	 	lorem,ipsum  " | cat -e
-"  	 	 	 		lorem,ipsum			 	 	 	 	" | cat -e
-"    			lorem,ipsum     			 	 	 	 	" | cat -e
-" 				     lorem,ipsum			 	 	 	 	 	 " | cat -e
-"					" | cat -e
-"                   " | cat -e
+./a.out "" | cat -e
+./a.out | cat -e
+./a.out "A"  | cat -e
+./a.out "\!\@#\!\@$\@#%\$\$#%$%^%$^^%&^%&&*&*" | cat -e
+./a.out \\ | cat -e
+
+./a.out "	lorem,ipsum  " | cat -e
+./a.out "		 	 	lorem,ipsum  " | cat -e
+./a.out "  	 	 	 		lorem,ipsum			 	 	 	 	" | cat -e
+./a.out "    			lorem,ipsum     			 	 	 	 	" | cat -e
+./a.out " 				     lorem,ipsum			 	 	 	 	 	 " | cat -e
+./a.out "					" | cat -e
+./a.out "                   " | cat -e
 */
 
 #include <unistd.h>
