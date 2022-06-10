@@ -19,7 +19,6 @@ int	ft_atoi(const char *str);
 #include <stdlib.h>
 #include <stdio.h>
 
-
 int	ft_atoi(const char *str)
 {
 	int		i;

@@ -14,4 +14,9 @@ https://github.com/jraleman/42.Exam-C
 - just Look over
 
 2_lvl
-- ft_atoi
+- PRACTICE ft_atoi
+- PRACTICE ft_strcmp
+- TODO ft_strcspn
+- TODO ft_strdup
+- TODO ft_strrev
+- TODO ft_stredup
