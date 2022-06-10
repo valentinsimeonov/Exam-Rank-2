@@ -8,3 +8,10 @@ https://github.com/Jcharloi/42-Exam
 
 https://github.com/jraleman/42.Exam-C
 
+**Practice**
+
+1_lvl
+- just Look over
+
+2_lvl
+- ft_atoi
