@@ -16,25 +16,23 @@ The function returns the largest number found in the array.
 If the array is empty, the function returns 0.
 */
 
-#include <unistd.h>
 #include <stdio.h>
 
 int		max(int* tab, unsigned int len)
 {
-	unsigned int i;
-	int tmp;
+	unsigned int	i;
+	int				temp;
 
-	i = 1;
 	if (!tab || !len)
 		return (0);
+	i = 0;
 	while (i < len - 1)
 	{
-		
 		if (tab[i] < tab[i + 1])
 		{
-			tmp = tab[i];
+			temp = tab[i];
 			tab[i] = tab[i + 1];
-			tab[i + 1] = tmp;
+			tab[i + 1] = temp;
 			i = -1;
 		}
 		i++;
@@ -42,30 +40,9 @@ int		max(int* tab, unsigned int len)
 	return (tab[0]);
 }
 
-int	main()
+int		main()
 {
-	int	array[] = {1,2,33,4,45,5};
-	// int	array[1024] = {};
-
-	printf("%d", max(array, 6));
+	int		tab[] = {};
+	printf("%d", max(tab, 3));
 	return (0);
 }
-
-// int		max(int* tab, unsigned int len)
-// {
-// 	unsigned int	i;
-// 	int				big;
-
-// 	i = 0;
-// 	if (!tab)
-// 		return (0);
-// 	while (i < len)
-// 	{
-// 		if (big < tab[i])
-// 			big = tab[i];
-// 		i++;
-// 	}
-// 	return (big);
-// }
-
-

@@ -20,3 +20,9 @@ https://github.com/jraleman/42.Exam-C
 - TODO ft_strdup
 - TODO ft_strrev
 - TODO ft_stredup
+
+
+**Questions**
+
+1. How to find out the Min or Max int from the Terminal without Internet?
+2. How to Protect against the Array of Int being Empty? max.c

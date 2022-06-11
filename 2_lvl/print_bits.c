@@ -18,11 +18,11 @@ Example, if you pass 2 to print_bits, it will print "00000010"
 
 void	print_bits(unsigned char octet)
 {
-	int				i;
-	unsigned char	bit;
+	unsigned char		bit;
+	int					i;
 
 	i = 8;
-	while (i--)
+	while(i--)
 	{
 		bit = (octet >> i & 1) + '0';
 		write(1, &bit, 1);
@@ -33,48 +33,8 @@ int	main()
 {
 	int	octet;
 
-	octet = 7;
+	octet = 255;
 	print_bits(octet);
 	return (0);
 }
-
-
-/* First Solution */
-// int		ft_strlen(char *str)
-// {
-// 	int		i;
-	
-// 	i = 0;
-// 	while (str[i] != '\0')
-// 	{
-// 		i++;
-// 	}
-// 	return (i);
-// }
-
-// void	print_bits(unsigned char octet)
-// {
-// 	int		i;
-// 	int		j;
-// 	int		len;
-// 	char	str[9] = "aaaaaaaa";
-
-// 	i = 0;
-// 	j = 0;
-// 	while (i <= 7 && j <= 7)
-// 	{
-// 		if (octet >> i & 1)
-// 			str[j] = '1';
-// 		else
-// 			str[j] = '0';
-// 		i++;
-// 		j++;
-// 	}
-// 	len = ft_strlen(str);
-// 	while (len >= 0)
-// 	{
-// 		write(1, &str[len - 1], 1);
-// 		len--;
-// 	}
-// }
 
