@@ -33,45 +33,45 @@ $
 #include <unistd.h>
 #include <stdio.h>
 
-int		main(int argc, char **argv)
+int 	main(int argc, char **argv)
 {
-	int		i;
-	int		result;
 	int		first;
-	char		op;
 	int		second;
+	char	op;
+	int		result;
 
-	i = 0;
+
 	if (argc == 4)
 	{
 		first = atoi(argv[1]);
-		op = argv[2][0];
 		second = atoi(argv[3]);
+		op = argv[2][0];
+		if (op == '*')
+		{
+			result = first * second;
+			printf("%d", result);
+		}
+		if (op == '/')
+		{
+			result  = first / second;
+			printf("%d", result);
+		}
 		if (op == '+')
 		{
 			result = first + second;
-			printf("%d\n", result);
+			printf("%d", result);
 		}
 		if (op == '-')
 		{
 			result = first - second;
-			printf("%d\n", result);
-		}
-		if (op == '*')
-		{
-			result = first * second;
-			printf("%d\n", result);
-		}
-		if (op == '/')
-		{
-			result = first / second;
-			printf("%d\n", result);
+			printf("%d", result);
 		}
 		if (op == '%')
 		{
 			result = first % second;
-			printf("%d\n", result);
+			printf("%d", result);
 		}
 	}
+	printf("\n");
 	return (0);
 }

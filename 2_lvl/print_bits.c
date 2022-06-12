@@ -37,4 +37,3 @@ int	main()
 	print_bits(octet);
 	return (0);
 }
-
