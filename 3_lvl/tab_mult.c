@@ -38,9 +38,9 @@ $>./tab_mult | cat -e
 $
 $>
 */
+
 #include <unistd.h>
 #include <stdio.h>
-
 
 int		ft_atoi(char *str)
 {
