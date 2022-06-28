@@ -21,6 +21,44 @@ Your function must be declared as follows:
 int	ft_atoi_base(const char *str, int str_base);
 */
 
+#include <stdio.h>
+
+int ft_atoi_base(const char *str, int str_base)   //// NEED to run DEBUGGER
+{
+    int i = 0;
+    int neg = 1;
+    int result = 0;
+    while (str[i] <= ' ')
+        i++;
+    if (str[i] == '-')
+    {
+        neg = -1;
+        i++;
+    }
+    if (str[i] == '+')
+        i++;
+    while (str[i])
+    {
+        result = result * str_base;
+        if (str[i] >= '0' && str[i] <= '9')
+            result = result + str[i] - '0';
+        else if (str[i] >= 'a' && str[i] <= 'f')
+            result = result + str[i] - 'a' + 10;
+        else if (str[i] >= 'A' && str[i] <= 'f')
+            result = result + str[i] - 'A' + 10;
+        i++;
+    }
+    return (neg * result);
+}
+
+int		main()
+{
+	char	str[] = "10";
+	int		base = 16;
+
+	printf("%d\n", ft_atoi_base(str, base));
+	return (0);
+}
 
 
 
