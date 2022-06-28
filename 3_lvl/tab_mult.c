@@ -40,7 +40,11 @@ $>
 */
 
 #include <unistd.h>
-#include <stdio.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 int		ft_atoi(char *str)
 {
@@ -56,7 +60,7 @@ int		ft_atoi(char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			sign = sign *(-1);
+			sign = sign * (-1);
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
@@ -65,11 +69,6 @@ int		ft_atoi(char *str)
 		i++;
 	}
 	return (sign * num);
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
 }
 
 void	ft_putnbr(int n)
@@ -85,16 +84,17 @@ void	ft_putnbr(int n)
 		n = n % 10;
 	}
 	if (n < 10)
-	{
 		ft_putchar(n + '0');
-	}
 }
 
-void	tab_mult(int n)
+void 	tab_mult(char *str)
 {
+	int		n;
 	int		i;
 
+
 	i = 1;
+	n = ft_atoi(str);
 	while (i <= 9)
 	{
 		ft_putnbr(i);
@@ -110,7 +110,7 @@ void	tab_mult(int n)
 int		main(int argc, char **argv)
 {
 	if (argc == 2)
-		tab_mult(ft_atoi(argv[1]));
+		tab_mult(argv[1]);
 	else
 		write(1, "\n", 1);
 	return (0);

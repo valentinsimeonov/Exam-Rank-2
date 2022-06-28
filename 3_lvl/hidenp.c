@@ -34,16 +34,14 @@ void	hidenp(char *probe, char *target)
 	while (*probe != '\0')
 	{
 		while (*probe != *target && *target != '\0')
-		{
-			target++;
-		}
+			++target;
 		if (*target == '\0')
 		{
 			write(1, "0", 1);
-			return ;
+			return;
 		}
-		target++;
-		probe++;
+		++target;
+		++probe;
 	}
 	write(1, "1", 1);
 }

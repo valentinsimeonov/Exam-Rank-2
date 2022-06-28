@@ -46,7 +46,7 @@ int	main()
 {
 	int		octet;
 
-	octet = 38;
+	octet = 1;
 	printf("%d", reverse_bits(octet));
 	return (0);
 }

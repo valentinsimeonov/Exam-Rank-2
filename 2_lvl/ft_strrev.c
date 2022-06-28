@@ -1,5 +1,4 @@
 /*
-
 Assignment name  : ft_strrev
 Expected files   : ft_strrev.c
 Allowed functions: 
@@ -13,6 +12,8 @@ Your function must be declared as follows:
 
 char    *ft_strrev(char *str);
 */
+
+// Passed Moulinette on 21.06.2022
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -36,11 +37,11 @@ char    *ft_strrev(char *str)
 
 	i = 0;
 	len = ft_strlen(str);
-	while (len > 0)
+	while (i < len)
 	{
 		temp = str[i];
-		str[i] = str[len];
-		str[len] = temp;
+		str[i] = str[len - 1];
+		str[len - 1] = temp;
 		i++;
 		len--;
 	}

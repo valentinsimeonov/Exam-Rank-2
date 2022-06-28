@@ -48,7 +48,7 @@ int		main()
 {
 	char	*str;
 
-	str = "-23";
+	str = "03";
 	printf("%d", ft_atoi(str));
 	return(0);
 }

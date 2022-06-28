@@ -29,12 +29,12 @@ lorem,ipsum$
 $>
 
 My Tests:
+
 ./a.out "" | cat -e
 ./a.out | cat -e
 ./a.out "A"  | cat -e
 ./a.out "\!\@#\!\@$\@#%\$\$#%$%^%$^^%&^%&&*&*" | cat -e
 ./a.out \\ | cat -e
-
 ./a.out "	lorem,ipsum  " | cat -e
 ./a.out "		 	 	lorem,ipsum  " | cat -e
 ./a.out "  	 	 	 		lorem,ipsum			 	 	 	 	" | cat -e
@@ -44,6 +44,9 @@ My Tests:
 ./a.out "                   " | cat -e
 */
 
+
+// Passed Moulinette on 21.06.2022
+// Passed Moulinette on 23.06.2022
 #include <unistd.h>
 
 int			main(int argc, char **argv)

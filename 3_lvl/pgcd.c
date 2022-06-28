@@ -28,31 +28,7 @@ $
 
 #include <unistd.h>
 #include <stdio.h>
-
-int		ft_atoi(char *str)
-{
-	int		i;
-	int		num;
-	int		sign;
-
-	i = 0;
-	num = 0;
-	sign = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = sign * (-1);
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = (num * 10) + (str[i] - '0');
-		i++;
-	}
-	return (sign * num);
-}
+#include <stdlib.h>
 
 void	pgcd(int a, int b)
 {
@@ -74,7 +50,7 @@ int		main(int argc, char **argv)
 {
 	if (argc == 3)
 	{
-		pgcd(ft_atoi(argv[1]), ft_atoi(argv[2]));
+		pgcd(atoi(argv[1]), atoi(argv[2]));
 	}
 	printf("\n");
 	return (0);
