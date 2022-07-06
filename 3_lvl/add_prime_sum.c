@@ -28,7 +28,6 @@ $>
 
 
 #include <unistd.h>
-
 #include <unistd.h>
 
 int		ft_atoi(char *str)
@@ -104,7 +103,7 @@ int		add_prime_sum(int n)
 
 	while (i <= n)
 	{
-		if (is_prime(i) == 1)
+		if (is_prime(i))
 			sum += i;
 		i++;
 	}

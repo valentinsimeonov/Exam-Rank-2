@@ -20,7 +20,7 @@ $> ./pgcd 42 12 | cat -e
 6$
 $> ./pgcd 14 77 | cat -e
 7$
-$> ./pgcd 17 3 | cat -e 
+$> ./pgcd 17 3 | cat -e
 1$
 $> ./pgcd | cat -e
 $
@@ -29,6 +29,8 @@ $
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+// 14 77
 
 void	pgcd(int a, int b)
 {
@@ -49,9 +51,7 @@ void	pgcd(int a, int b)
 int		main(int argc, char **argv)
 {
 	if (argc == 3)
-	{
 		pgcd(atoi(argv[1]), atoi(argv[2]));
-	}
 	printf("\n");
 	return (0);
 }

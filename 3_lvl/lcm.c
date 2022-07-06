@@ -7,7 +7,7 @@ Allowed functions:
 Write a function who takes two unsigned int as parameters and returns the 
 computed LCM of those parameters.
 
-LCM (Lowest Common Multiple) of two non-zero integers is the smallest postive
+LCM (Lowest Common Multiple) of two non-zero integers is the smallest positive
 integer divisible by the both integers.
 
 A LCM can be calculated in two ways:
@@ -29,12 +29,14 @@ Your function must be prototyped as follows:
   unsigned int    lcm(unsigned int a, unsigned int b);
 */
 
+// 17 7
+
 unsigned int	lcm(unsigned int a, unsigned int b)
 {
+	unsigned int n;
+
 	if (a == 0 || b == 0)
 		return (0);
-
-	unsigned int n;
 	if (a > b)
 		n = a;
 	else
@@ -44,7 +46,7 @@ unsigned int	lcm(unsigned int a, unsigned int b)
 	{
 		if (n % a == 0 && n % b == 0)
 			return (n);
-		++n;
+		n++;
 	}
 }
 
@@ -54,5 +56,5 @@ unsigned int	lcm(unsigned int a, unsigned int b)
 
 int main(void)
 {
-	printf("%u\n", lcm(5, 10));
+	printf("%u\n", lcm(7, 10));
 }

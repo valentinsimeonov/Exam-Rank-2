@@ -35,7 +35,7 @@ void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
-
+//     Premier PETIT TesT
 void	str_capitalizer(char *str)
 {
 	int		i;
