@@ -92,11 +92,11 @@ int		is_prime(int n)
 	{
 		if (n % i == 0)
 			return (0);
-		++i;
+		i++;
 	}
 	return (1);
 }
-
+7
 int		add_prime_sum(int n)
 {
 	int sum = 0;
@@ -106,7 +106,7 @@ int		add_prime_sum(int n)
 	{
 		if (is_prime(i) == 1)
 			sum += i;
-		++i;
+		i++;
 	}
 	return (sum);
 }
