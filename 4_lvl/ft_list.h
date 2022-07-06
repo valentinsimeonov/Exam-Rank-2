@@ -1,5 +1,5 @@
-#ifndef FT_LIST_FOREACH_H
-#define FT_LIST_FOREACH_H
+#ifndef FT_LIST_H
+#define FT_LIST_H
 
 typedef struct    s_list
 {
@@ -7,7 +7,7 @@ typedef struct    s_list
     void          *data;
 }                 t_list;
 
-void	ft_list_foreach(t_list *begin_list, void (*f)(void *));
+void	ft_list_foreach(t_list *head, void (*f)(void *));
 
 
 #endif

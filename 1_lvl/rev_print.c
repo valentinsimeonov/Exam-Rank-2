@@ -40,10 +40,8 @@ void	ft_putchar(char c)
 
 int		main(int argc, char **argv)
 {
-	int		i;
 	int		count;
 
-	i = 0;
 	count = 0;
 	if (argc == 2)
 	{

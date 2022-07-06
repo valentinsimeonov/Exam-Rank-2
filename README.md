@@ -6,7 +6,7 @@ https://github.com/pasqualerossi/42-School-Exam-Rank-02
 
 https://github.com/Jcharloi/42-Exam
 
-https://github.com/jraleman/42.Exam-C
+ 
 
 **Practice**
 
@@ -17,8 +17,6 @@ https://github.com/jraleman/42.Exam-C
 - TODO Better Solution for print_bits  --- it Prints a New Line at the end and it shouldn't
 
 - PRACTICE wdmatch
-
-- TODO ft_strcspn
 - TODO ft_strdup
 - TODO ft_stredup
 
@@ -28,7 +26,7 @@ https://github.com/jraleman/42.Exam-C
 - TODO ft_range
 - TODO ft_rrange
 - print_hex  (21.04.2022)
-- 
+
 
 
 
