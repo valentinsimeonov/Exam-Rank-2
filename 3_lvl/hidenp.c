@@ -27,29 +27,37 @@ $
 $>
 */
 
+
 #include <unistd.h>
 
-void	hidenp(char *probe, char *target)
+void	ft_putstr(const char *str)
 {
-	while (*probe != '\0')
-	{
-		while (*probe != *target && *target != '\0')
-			++target;
-		if (*target == '\0')
-		{
-			write(1, "0", 1);
-			return;
-		}
-		++target;
-		++probe;
-	}
-	write(1, "1", 1);
-}
+	int		i;
 
-int		main(int argc, char **argv)
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
+int		main(int argc, char const *argv[])
 {
+	int		i;
+	int		j;
+
 	if (argc == 3)
-		hidenp(argv[1], argv[2]);
+	{
+		i = 0;
+		j = 0;
+		while (argv[2][j])
+			if (argv[2][j++] == argv[1][i])
+				i++;
+		if (!argv[1][i])
+			write(1, "1", 1);
+		else if (argv[1][i])
+			write(1, "0", 1);
+	}
 	write(1, "\n", 1);
 	return (0);
 }

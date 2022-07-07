@@ -35,6 +35,8 @@ $
 $>
 */
 
+// Passed Moulinette 07.07.2022
+
 #include <unistd.h>
 
 int		skip_whitespace(char *str, int i)
@@ -53,31 +55,29 @@ int		ft_wordlen(char *str)
 	return (i);
 }
 
-int		print_word(char *str, int i, int *is_first)
+void	epur_str(char *str)
 {
-	int word_len;
+	int i;
+	int is_first;
+	int	wordlen;
 
+	i = 0;
+	is_first = 1;
+	wordlen = 0;
 	i = skip_whitespace(str, i);
-	word_len = ft_wordlen(str + i);
-	if (*is_first == 0)
-		write(1, " ", 1);
-	write(1, str + i, word_len);
-	*is_first = 0;
-	return (i + word_len);
-}
-
-int		epur_str(char *str)
-{
-	int i = 0;
-	int is_first = 1;
-
-	i = skip_whitespace(str, i);
-	while (str[i] != '\0')
+	while (str[i])
 	{
-		i = print_word(str, i, &is_first);
+		i = skip_whitespace(str, i);
+		if (is_first == 0)
+			write(1, " ", 1);
+		wordlen = ft_wordlen(str + i);
+		write(1, str + i, wordlen);
+		is_first = 0;
+		i = i + wordlen;
 		i = skip_whitespace(str, i);
 	}
-	return (is_first);
+	if (wordlen != 0)
+		write(1, " ", 1);
 }
 
 int		main(int argc, char **argv)
@@ -86,12 +86,16 @@ int		main(int argc, char **argv)
 	{
 		char *str = argv[1];
 		int i = 0;
-		int is_first;
+		int	wordlen;
+		int	begin;
 
+		i = 0;
+		wordlen = 0;
 		i = skip_whitespace(str, i);
-		i = i + ft_wordlen(str + i);
-		is_first = epur_str(str + i);
-		print_word(str, 0, &is_first);
+		begin = i;
+		wordlen = ft_wordlen(str + i);
+		epur_str(str + i + wordlen);
+		write(1, str + begin, wordlen);
 	}
 	write(1, "\n", 1);
 	return (0);

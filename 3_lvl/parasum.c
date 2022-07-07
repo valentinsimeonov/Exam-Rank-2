@@ -20,6 +20,9 @@ $>./paramsum | cat -e
 $>
 */
 
+// Passed Moulinette 07.07.2022
+
+
 #include <unistd.h>
 
 void	ft_putchar(char c)

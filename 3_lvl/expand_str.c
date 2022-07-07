@@ -19,8 +19,8 @@ Examples:
 $> ./expand_str "See? It's easy to print the same thing" | cat -e
 See?   It's   easy   to   print   the   same   thing$
 $> ./expand_str " this        time it      will     be    more complex  " | cat -e
-this   time   it   will   be   more   complex$
-$> ./expand_str "No S*** Sherlock..." "nAw S*** ShErLaWQ..." | cat -e
+this   time   it   will   be   more   complex$"No S*** Sherlock..." "nAw S*** ShErLaWQ..." | cat -e
+$> ./expand_str 
 $
 $> ./expand_str "" | cat -e
 $
@@ -28,11 +28,20 @@ $>
 
 */
 
+
 #include <unistd.h>
 
-int		word_len(char *str)
+int		skip_spaces(char *str, int i)
+{
+	while (str[i] == ' ' || str[i] == '\t')
+		++i;
+	return (i);
+}
+
+int		ft_wordlen(char *str)
 {
 	int i = 0;
+
 	while (str[i] != '\0' && str[i] != ' ' && str[i] != '\t')
 		++i;
 	return (i);
@@ -40,19 +49,26 @@ int		word_len(char *str)
 
 void	expand_str(char *str)
 {
-	int len;
-	int first_word = 1;
+	int		i;
+	int		word_len;
+	int		first_word;
 
-	while (*str != '\0')
+	i = 0;
+	first_word = 1;
+	i = skip_spaces(str, i);
+	while (str[i] != '\0')
 	{
-		while (*str == ' ' || *str == '\t')
-			++str;
-		len = word_len(str);
-		if (len > 0 && first_word == 0)
-			write(1, "   ", 3);
+		if (first_word == 0)
+		{
+			write(1, " ", 1);
+			write(1, " ", 1);
+			write(1, " ", 1);
+		}
+		word_len = ft_wordlen(str + i);
+		write(1, str + i, word_len);
+		i = i + word_len;
 		first_word = 0;
-		write(1, str, len);
-		str = str + len;
+		i = skip_spaces(str, i);
 	}
 }
 
@@ -60,7 +76,6 @@ int		main(int argc, char **argv)
 {
 	if (argc == 2)
 		expand_str(argv[1]);
-
 	write(1, "\n", 1);
 	return (0);
 }
